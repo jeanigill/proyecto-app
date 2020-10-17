@@ -5,18 +5,36 @@
  */
 package bitacora;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jeanine Gill
  */
 public class Bitacora {
+    public int año;
+    public ArrayList<Materia> materias;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("HOLA KARENCHU");
+    
+    
+    //GETTERS AND SETTERS
+    
+    public int getAño() {
+        return año;
     }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
+    public ArrayList<Materia> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(ArrayList<Materia> materias) {
+        this.materias = materias;
+    }
+ 
+    
     
 }
