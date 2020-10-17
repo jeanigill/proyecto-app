@@ -21,6 +21,11 @@ public class Item {
         this.dudas = dudas;
         this.aprendido = aprendido;
     }
+        public Item(String concepto, String dudas, boolean aprendido) {
+        this.concepto = concepto;
+        this.dudas = dudas;
+        this.aprendido = aprendido;
+    }
     
     public void imprimirItem(){        
         System.out.println("Item: " + concepto );        
