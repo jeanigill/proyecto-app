@@ -6,6 +6,7 @@
 package bitacora;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -16,19 +17,25 @@ public class Tema {
     
     Scanner teclado = new Scanner (System.in);
     
-  private int fecha;
+  private Date fecha;
   private String nombre;
   public ArrayList<Item> items;
   public ArrayList<Ejercicio> ejercicios;
   public ArrayList<Investigacion> investigaciones;
 
-    public Tema(int fecha, String nombre, ArrayList<Item> items, ArrayList<Ejercicio> ejercicios, ArrayList<Investigacion> investigaciones) {
+    public Tema(Date fecha, String nombre, ArrayList<Item> items, ArrayList<Ejercicio> ejercicios, ArrayList<Investigacion> investigaciones) {
         this.fecha = fecha;
         this.nombre = nombre;
         this.items = items;
         this.ejercicios = ejercicios;
         this.investigaciones = investigaciones;
     }
+
+    public Tema(Date fecha, String nombre) {
+        this.fecha = fecha;
+        this.nombre = nombre;
+    }
+
   
     public Tema (){
         investigacionPorDefecto ();
@@ -118,11 +125,11 @@ public class Tema {
      
   //GETTER AND SETTERS
 
-    public int getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

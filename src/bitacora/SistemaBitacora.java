@@ -7,17 +7,13 @@ package bitacora;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Jeanine Gill
- */
 public class SistemaBitacora {
-    
+
     /**
      * @param args the command line arguments
      */
-    
-    
+    public static Bitacora bitacora = new Bitacora ();
+    public static Materia materia = new Materia ();
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);        
         int opcion;
@@ -27,7 +23,7 @@ public class SistemaBitacora {
             System.out.println("SISTEMA DE BITACORA ACADEMICA");
             System.out.println("");
             System.out.println("Menú del sistema");
-            System.out.println("1. ");
+            System.out.println("1. Materias");
             System.out.println("2. ");
             System.out.println("3. ");
             System.out.println("4. ");
@@ -36,6 +32,7 @@ public class SistemaBitacora {
             System.out.println("7. Salir");
             System.out.println("");
             System.out.print("Ingrese el número de la opción elegida: ");
+            System.out.println("");
             opcion = teclado.nextInt();
                 
             switch(opcion){
@@ -49,9 +46,9 @@ public class SistemaBitacora {
                       opcion = teclado.nextInt();
                       
                       if(opcion == 1){
-                         // bitacora.verMateria();
-                      } if (opcion == 2 ){
-                          //bitacora.cargarMaterias();
+                          bitacora.imprimirMaterias();
+                      } else if (opcion == 2 ){
+                          bitacora.cargarMateria();
                       } else {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       }
@@ -66,7 +63,7 @@ public class SistemaBitacora {
                       opcion = teclado.nextInt();
                       
                       if(opcion == 1){
-                         // materias.verTemas();
+                          materia.verTemas();
                       } if (opcion == 2 ){
                           //materias.cargarTemas();
                       } else {
@@ -127,10 +124,3 @@ public class SistemaBitacora {
         }while(opcion != 6);
     }    
     }
-
-
-        
-        
-    
-    
-

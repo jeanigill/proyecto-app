@@ -5,6 +5,7 @@
  */
 package bitacora;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,13 +16,20 @@ import java.util.Scanner;
 public class Materia {
     Scanner teclado = new Scanner (System.in);
    private String nombre;
-   public ArrayList<Tema> temas;
+   public ArrayList<Tema> temas = new ArrayList ();
+   private int id;
 
-    public Materia(String nombre, ArrayList<Tema> temas) {
+    public Materia(int id, String nombre, ArrayList<Tema> temas) {
         this.nombre = nombre;
         this.temas = temas;
+        this.id = id;
     }
-   Tema unTema;
+ 
+    public Materia(int id, String nombre) {
+        this.nombre = nombre;
+        this.id = id;
+    }
+ 
     public Materia () {
     //temaPorDefecto ();
 }
@@ -32,7 +40,7 @@ public class Materia {
 //        Ejercicio unEjercicio;
 //        Investigacion unaInvestigacion;
 //        Tema newTema = new Tema ("10/14/2020", "Programación Orientada a Objetos",
-//                unTema.itemsPorDefecto(), unTema.ejercicioPorDefecto(), unTema.investigacionPorDefecto() );
+//                unTema.itemsPorDefecto(), unTema, unTema.investigacionPorDefecto() );
 //        
 //    }
     
@@ -40,16 +48,48 @@ public class Materia {
         teclado.nextLine();
         System.out.println("Ingrese el tema: ");
         String tema = teclado.nextLine();
-        System.out.println("Fecha: ");
-        int fecha = teclado.nextInt();
-        Item newItem = unTema.cargarItem();
-        Ejercicio newEjercicio = unTema.cargarEjercicio();
-        Investigacion newInvestigacion = unTema.cargarInvestigacion();
-    //    Tema newTema = new Tema(fecha, tema, newItem, newEjercicio, newInvestigacion);
+        System.out.println("Día: ");
+        String diaN = teclado.nextLine();
+        System.out.println("Mes: ");
+        String mesN = teclado.nextLine();
+        System.out.println("Año: ");
+        String anhoN = teclado.nextLine();
+        String FechaC = anhoN + "-" + mesN + "-" + diaN;
+        Date fecha = (Date.valueOf(FechaC));
+        
+//        Item newItem = unTema.cargarItem();
+//        Ejercicio newEjercicio = unTema.cargarEjercicio();
+//        Investigacion newInvestigacion = unTema.cargarInvestigacion();
+//        Tema newTema = new Tema(fecha, unTema.items.set(fecha, newItem)tema, newItem, newEjercicio, newInvestigacion);
+        Tema newTema = new Tema(fecha, nombre );
+        temas.add(newTema);
     
     }
+    public void imprimirMateria (){
+        System.out.println("Nombre: "+nombre);
+    } 
     
+    public void verTemas (){
+       Bitacora bitacora;
+        //buscarMateria;
+    }
+    public void imprimirTemas(){
+         System.out.println("");
+        System.out.println("Temas: ");
+        for(int i= 0; i<temas.size(); i++ ){
+        Tema unTema = temas.get(i);
+            System.out.println(i+1+"-"+unTema.getNombre()+ " Fecha: "+unTema.getFecha());
+    }
+    }
    //GETTERS AND SETTERS
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
