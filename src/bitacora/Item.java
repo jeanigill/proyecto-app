@@ -14,14 +14,17 @@ public class Item {
     private String descripcion;
     private String dudas;
     private boolean aprendido;
+    int id; 
 
-    public Item(String concepto, String descripcion, String dudas, boolean aprendido) {
+    public Item(int id, String concepto, String descripcion, String dudas, boolean aprendido) {
+        this.id = id;
         this.concepto = concepto;
         this.descripcion = descripcion;
         this.dudas = dudas;
         this.aprendido = aprendido;
     }
-        public Item(String concepto, String dudas, boolean aprendido) {
+        public Item(int id, String concepto, String dudas, boolean aprendido) {
+        this.id = id;
         this.concepto = concepto;
         this.dudas = dudas;
         this.aprendido = aprendido;
@@ -32,6 +35,14 @@ public class Item {
     }
     
     //GETTERS AND SETTERS
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getConcepto() {
         return concepto;

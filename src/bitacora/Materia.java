@@ -48,6 +48,8 @@ public class Materia {
         teclado.nextLine();
         System.out.println("Ingrese el tema: ");
         String tema = teclado.nextLine();
+        System.out.println("ID: ");
+        int id = teclado.nextInt();
         System.out.println("Día: ");
         String diaN = teclado.nextLine();
         System.out.println("Mes: ");
@@ -61,7 +63,7 @@ public class Materia {
 //        Ejercicio newEjercicio = unTema.cargarEjercicio();
 //        Investigacion newInvestigacion = unTema.cargarInvestigacion();
 //        Tema newTema = new Tema(fecha, unTema.items.set(fecha, newItem)tema, newItem, newEjercicio, newInvestigacion);
-        Tema newTema = new Tema(fecha, nombre );
+        Tema newTema = new Tema(id, fecha, nombre );
         temas.add(newTema);
     
     }
@@ -78,10 +80,22 @@ public class Materia {
         System.out.println("Temas: ");
         for(int i= 0; i<temas.size(); i++ ){
         Tema unTema = temas.get(i);
-            System.out.println(i+1+"-"+unTema.getNombre()+ " Fecha: "+unTema.getFecha());
+            System.out.println(unTema.getId()+"-"+unTema.getNombre()+ " Fecha: "+unTema.getFecha());
     }
     }
-   //GETTERS AND SETTERS
+    public Tema buscarTema (){
+        Tema unTema = null;
+        System.out.println("Ingrese el id del tema:");    
+        int idT = teclado.nextInt();
+        for (int i =0; i<temas.size(); i++){
+            unTema = temas.get(i);
+            if (unTema.getId()== idT){
+                i= temas.size();
+            }
+        }return unTema;
+    }
+    
+    //GETTERS AND SETTERS
 
     public int getId() {
         return id;

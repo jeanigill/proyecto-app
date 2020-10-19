@@ -21,10 +21,16 @@ public class Bitacora {
     public ArrayList<Materia> materias = new ArrayList ();
 
     public void materiasPorDefecto() {
-
+        Materia materia1 = new Materia (01, "POO");
+        Materia materia2 = new Materia (02, "Alemán");
+        Materia materia3 = new Materia (03, "Matemática");
+        materias.add(materia1);
+        materias.add(materia2);
+        materias.add(materia3);
+        
     }
     public Bitacora (){
-        
+        materiasPorDefecto();
     }
 
     public void cargarMateria() {
@@ -48,7 +54,7 @@ public class Bitacora {
     
     public Materia buscarMateria (){
         Materia unaMateria = null;
-        imprimirMaterias();
+//        imprimirMaterias();
         System.out.println("Introduzca el id de la materia");
         int idM = teclado.nextInt();
         for (int i=0; i<materias.size(); i++){
@@ -61,42 +67,50 @@ public class Bitacora {
     }
     
         public void imprimirBitacora(){
-        System.out.println("Lista de materias");
         imprimirMaterias();
-//        System.out.println("1- Buscar Materia");
         System.out.println("0- Cargar materias");
         int opcion = teclado.nextInt();
-        if (opcion != 0) {
-            buscarMateria();
-        } else {
-            cargarMateria();
-        }
-        do {
-        System.out.println("Ingrese una opcion");
-        System.out.println("1. Tema");
-        System.out.println("2. Item");
-        System.out.println("3. Ejercicio");
-        System.out.println("4. Investigación");
-       
-        System.out.print("Ingrese el número de la opción elegida: ");
-        opcion = teclado.nextInt();
-          switch(opcion){
-                case 1: 
-                    materia.cargarTema();
-                    break;
-                case 2:                  
-                    tema.cargarItem();
-                    break;
-                case 3:
-        tema.cargarEjercicio();
-                    break;
-                case 4:
-        tema.cargarInvestigacion();
-                    break;    
-                default:
-                    System.out.println("La ejecución del sistema ha finalizado");
+        if (opcion != 0) {}
+            materia.imprimirMateria();
+            Materia unaMateria = buscarMateria();
+            unaMateria.imprimirTemas();
+            System.out.println("0- Cargar tema");
+            opcion = teclado.nextInt();
+            if (opcion ==0){
+            materia.cargarTema();    
+            }else{
+               Tema unTema = materia.buscarTema();
             }
-        } while(opcion != 7);
+            
+//         else {
+//            cargarMateria();
+//        }
+//        do {
+//        System.out.println("Ingrese una opcion");
+//        System.out.println("1. Tema");
+//        System.out.println("2. Item");
+//        System.out.println("3. Ejercicio");
+//        System.out.println("4. Investigación");
+//       
+//        System.out.print("Ingrese el número de la opción elegida: ");
+//        opcion = teclado.nextInt();
+//          switch(opcion){
+//                case 1: 
+//                    
+//                    break;
+//                case 2:                  
+//                    tema.cargarItem();
+//                    break;
+//                case 3:
+//        tema.cargarEjercicio();
+//                    break;
+//                case 4:
+//        tema.cargarInvestigacion();
+//                    break;    
+//                default:
+//                    System.out.println("La ejecución del sistema ha finalizado");
+//            }
+//        } while(opcion != 7);
     }  
 
     //GETTERS AND SETTERS

@@ -15,8 +15,10 @@ public class Investigacion {
   private String comentarios;
   private int comprension;
   private String dudas;
+  private int id;
 
-    public Investigacion(int tiempoDedicado, String tema, String comentarios, int comprension, String dudas) {
+    public Investigacion(int id, int tiempoDedicado, String tema, String comentarios, int comprension, String dudas) {
+        this.id = id;
         this.tiempoDedicado = tiempoDedicado;
         this.tema = tema;
         this.comentarios = comentarios;
@@ -68,6 +70,14 @@ public class Investigacion {
 
     public void setDudas(String dudas) {
         this.dudas = dudas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
   
   

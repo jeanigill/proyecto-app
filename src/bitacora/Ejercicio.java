@@ -14,8 +14,10 @@ public class Ejercicio {
     private String experiencia;
     private String dudas;
     private int logrado;
+    private int id ;
 
-    public Ejercicio(int tiempoDedicado, String experiencia, String dudas, int logrado) {
+    public Ejercicio(int id, int tiempoDedicado, String experiencia, String dudas, int logrado) {
+        this.id = id;
         this.tiempoDedicado = tiempoDedicado;
         this.experiencia = experiencia;
         this.dudas = dudas;
@@ -59,6 +61,14 @@ public class Ejercicio {
 
     public void setLogrado(int logrado) {
         this.logrado = logrado;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

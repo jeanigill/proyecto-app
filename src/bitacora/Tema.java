@@ -19,11 +19,13 @@ public class Tema {
     
   private Date fecha;
   private String nombre;
-  public ArrayList<Item> items;
-  public ArrayList<Ejercicio> ejercicios;
-  public ArrayList<Investigacion> investigaciones;
+  public ArrayList<Item> items = new ArrayList();
+  public ArrayList<Ejercicio> ejercicios = new ArrayList();
+  public ArrayList<Investigacion> investigaciones = new ArrayList();
+  private int id;
 
-    public Tema(Date fecha, String nombre, ArrayList<Item> items, ArrayList<Ejercicio> ejercicios, ArrayList<Investigacion> investigaciones) {
+    public Tema(int id, Date fecha, String nombre, ArrayList<Item> items, ArrayList<Ejercicio> ejercicios, ArrayList<Investigacion> investigaciones) {
+        this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
         this.items = items;
@@ -31,7 +33,8 @@ public class Tema {
         this.investigaciones = investigaciones;
     }
 
-    public Tema(Date fecha, String nombre) {
+    public Tema(int id, Date fecha, String nombre) {
+        this.id = id;
         this.fecha = fecha;
         this.nombre = nombre;
     }
@@ -44,16 +47,16 @@ public class Tema {
     }
     
     public void investigacionPorDefecto (){
-        Investigacion investigacion1 = new Investigacion (30, "Static en Java", "Static se usa con métodos y atributos.", 
+        Investigacion investigacion1 = new Investigacion (01, 30, "Static en Java", "Static se usa con métodos y atributos.", 
                 80,"Aún no me queda claro ya que la palabra reservada se usa con atributos y métodos.");
         investigaciones.add(investigacion1);
     }
     
     public void itemsPorDefecto (){
-    Item item1 = new Item ("Clase", "Modelo que define conjunto de atributos y métodos", "", true);
-    Item item2 = new Item ("Objeto", "Unidad dentro de un programa que tiene estado y comportamiento. Instancia de una clase.", "", true);
-    Item item3 = new Item ("Instancia",  "¿Cuál es la diferencia entre objeto e instancia?", false);
-    Item item4 = new Item ("Constructor", "", false);
+    Item item1 = new Item (01, "Clase", "Modelo que define conjunto de atributos y métodos", "", true);
+    Item item2 = new Item (02, "Objeto", "Unidad dentro de un programa que tiene estado y comportamiento. Instancia de una clase.", "", true);
+    Item item3 = new Item (03, "Instancia",  "¿Cuál es la diferencia entre objeto e instancia?", false);
+    Item item4 = new Item (04, "Constructor", "", false);
     items.add(item1);
     items.add(item2);
     items.add(item3);
@@ -61,7 +64,7 @@ public class Tema {
     }
     
     public void ejercicioPorDefecto () {
-    Ejercicio ejercicio1 = new Ejercicio (90, "Aprendí que una clase puede tener varios constructores.",
+    Ejercicio ejercicio1 = new Ejercicio (01, 90, "Aprendí que una clase puede tener varios constructores.",
             "¿Para qué sirve la palabra reservada static?", 80 );
     ejercicios.add(ejercicio1);
     }
@@ -79,12 +82,14 @@ public class Tema {
          System.out.println("Nivel de comprensión: ");
          int nivelComp = teclado.nextInt();
          
-         Investigacion newInvestigacion = new Investigacion (tiempoD, tema, comentarios, nivelComp, dudas);
+         Investigacion newInvestigacion = new Investigacion (01, tiempoD, tema, comentarios, nivelComp, dudas);
          this.investigaciones.add(newInvestigacion);
          return newInvestigacion;
      }
 
      public Ejercicio cargarEjercicio (){
+         System.out.println("ID: ");
+         int id = teclado.nextInt();
          teclado.nextLine();
          System.out.println("Experiencia: ");
          String experiencia = teclado.nextLine();
@@ -94,12 +99,14 @@ public class Tema {
          int tiempoD = teclado.nextInt();
          System.out.println("Porcentaje logrado: ");
          int logrado = teclado.nextInt();
-         Ejercicio newEjercicio = new Ejercicio (tiempoD, experiencia, dudas, logrado);
+         Ejercicio newEjercicio = new Ejercicio (id, tiempoD, experiencia, dudas, logrado);
          this.ejercicios.add(newEjercicio);
          return newEjercicio;
      }
      
      public Item cargarItem (){
+         System.out.println("ID:");
+         int id = teclado.nextInt();
          teclado.nextLine();
          System.out.println("Concepto: ");
          String concepto = teclado.nextLine();
@@ -117,13 +124,20 @@ public class Tema {
          }else if (opcion==2){
              aprendido = false;
          }
-         Item newItem = new Item (concepto, descripcion, dudas, aprendido);
+         Item newItem = new Item (id, concepto, descripcion, dudas, aprendido);
          this.items.add(newItem);
          return newItem;
      }
-         
+
+     //GETTER AND SETTERS
      
-  //GETTER AND SETTERS
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Date getFecha() {
         return fecha;
