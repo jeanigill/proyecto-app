@@ -14,22 +14,23 @@ import java.util.Scanner;
  */
 public class Bitacora {
 
-    public  Materia materia = new Materia ();
-    public  Tema tema = new Tema ();
-    Scanner teclado = new Scanner (System.in);
+    public Materia unaMateria = new Materia();
+    public Tema tema = new Tema();
+    Scanner teclado = new Scanner(System.in);
     public int año;
-    public ArrayList<Materia> materias = new ArrayList ();
+    public ArrayList<Materia> materias = new ArrayList();
 
     public void materiasPorDefecto() {
-        Materia materia1 = new Materia (01, "POO");
-        Materia materia2 = new Materia (02, "Alemán");
-        Materia materia3 = new Materia (03, "Matemática");
+        Materia materia1 = new Materia(01, "POO", unaMateria.temas);
+        Materia materia2 = new Materia(02, "Alemán");
+        Materia materia3 = new Materia(03, "Matemática");
         materias.add(materia1);
         materias.add(materia2);
         materias.add(materia3);
-        
+
     }
-    public Bitacora (){
+
+    public Bitacora() {
         materiasPorDefecto();
     }
 
@@ -39,49 +40,70 @@ public class Bitacora {
         int id = teclado.nextInt();
         System.out.println("Nombre de la materia: ");
         String nombre = teclado.nextLine();
-        Materia newMateria = new Materia (id, nombre);
+        Materia newMateria = new Materia(id, nombre);
         this.materias.add(newMateria);
     }
-    
-    public void imprimirMaterias (){
+
+    public void imprimirMaterias() {
         System.out.println("");
         System.out.println("Materias: ");
-        for(int i= 0; i<materias.size(); i++ ){
-        Materia unaMateria = materias.get(i);
-            System.out.println(unaMateria.getId()+"-"+unaMateria.getNombre());
+        for (int i = 0; i < materias.size(); i++) {
+            Materia unaMateria = materias.get(i);
+            System.out.println(unaMateria.getId() + "-" + unaMateria.getNombre());
+        }
     }
-    }
-    
-    public Materia buscarMateria (){
+
+    public Materia buscarMateria() {
         Materia unaMateria = null;
 //        imprimirMaterias();
         System.out.println("Introduzca el id de la materia");
         int idM = teclado.nextInt();
-        for (int i=0; i<materias.size(); i++){
-        unaMateria= materias.get(i);
-            if (idM == unaMateria.getId()){
+        for (int i = 0; i < materias.size(); i++) {
+            unaMateria = materias.get(i);
+            if (idM == unaMateria.getId()) {
                 i = materias.size();
-            }     
+                return unaMateria;
+            }
         }
-    return unaMateria;
+        return null;
     }
-    
-        public void imprimirBitacora(){
+
+    public void imprimirBitacora() {
         imprimirMaterias();
         System.out.println("0- Cargar materias");
         int opcion = teclado.nextInt();
-        if (opcion != 0) {}
-            materia.imprimirMateria();
-            Materia unaMateria = buscarMateria();
+        if (opcion != 0) {
+        }
+        unaMateria = buscarMateria();
+        if (unaMateria != null) {
+            unaMateria.imprimirMateria();
             unaMateria.imprimirTemas();
-            System.out.println("0- Cargar tema");
+        }
+        System.out.println("0- Cargar tema");
+        opcion = teclado.nextInt();
+        if (opcion == 0) {
+            unaMateria.cargarTema();
+        } else {
+            Tema unTema = unaMateria.buscarTema();
+            System.out.println(" ");
+            System.out.println("1. Ítems");
+            System.out.println("2. Ejercicios");
+            System.out.println("3. Investigaciones");
             opcion = teclado.nextInt();
-            if (opcion ==0){
-            materia.cargarTema();    
-            }else{
-               Tema unTema = materia.buscarTema();
-            }
+           switch (opcion){
+            case 1:
+            unTema.imprimirItems();
+            break;   
+            case 2: 
+                unTema.imprimirEjercicios();
+                break;
+            case 3:
+                unTema.imprimirInvestigaciones();
+                break;
+           }
             
+        }
+
 //         else {
 //            cargarMateria();
 //        }
@@ -111,7 +133,7 @@ public class Bitacora {
 //                    System.out.println("La ejecución del sistema ha finalizado");
 //            }
 //        } while(opcion != 7);
-    }  
+    }
 
     //GETTERS AND SETTERS
     public int getAño() {

@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -128,6 +128,37 @@ public class Tema {
          this.items.add(newItem);
          return newItem;
      }
+     
+     public void imprimirItems (){
+         if (items.size()<0){
+             for (int i=0; i<items.size(); i++){
+                 Item unItem = items.get(i);
+                 System.out.println(unItem.getId()+" - Concepto : "+unItem.getConcepto()+" - Descripción: "
+                         +unItem.getDescripcion()+" - Dudas: "+unItem.getDudas()+" - Aprendido "+unItem.isAprendido());
+             }
+     }
+     }
+     public void imprimirEjercicios (){
+         if (ejercicios.size()<0){
+             for (int i=0; i<ejercicios.size(); i++){
+                 Ejercicio unEjercicio = ejercicios.get(i);
+                 System.out.println(unEjercicio.getId()+" - Tiempo dedicado (minutos): "+unEjercicio.getTiempoDedicado()+" - Experiencia: "
+                         +unEjercicio.getExperiencia()+" - Dudas: "+unEjercicio.getDudas()+" - % Logrado"+unEjercicio.getLogrado());
+             }
+     }
+     }
+     public void imprimirInvestigaciones (){
+         if (investigaciones.size()<0){
+             for (int i=0; i<investigaciones.size(); i++){
+                 Investigacion unaInvestigacion = investigaciones.get(i);
+                 System.out.println(" Tiempo dedicado (minutos): "+unaInvestigacion.getTiempoDedicado()+" - Tema: "
+                         +unaInvestigacion.getTema()+" - Comentarios: "+unaInvestigacion.getComentarios()+" - Nivel de comprensión (%) "
+                         +unaInvestigacion.getComprension()+" - Dudas: "+unaInvestigacion.getDudas());
+             }
+     }
+     }
+     
+     
 
      //GETTER AND SETTERS
      

@@ -18,6 +18,7 @@ public class Materia {
    private String nombre;
    public ArrayList<Tema> temas = new ArrayList ();
    private int id;
+   public Tema unTema = new Tema();
 
     public Materia(int id, String nombre, ArrayList<Tema> temas) {
         this.nombre = nombre;
@@ -31,18 +32,17 @@ public class Materia {
     }
  
     public Materia () {
-    //temaPorDefecto ();
+    temaPorDefecto ();
 }
     
-//    public void temaPorDefecto (){
-//        Item unItem;
-//        Tema unTema ;
-//        Ejercicio unEjercicio;
-//        Investigacion unaInvestigacion;
-//        Tema newTema = new Tema ("10/14/2020", "Programación Orientada a Objetos",
-//                unTema.itemsPorDefecto(), unTema, unTema.investigacionPorDefecto() );
-//        
-//    }
+    public void temaPorDefecto (){  
+       
+        String fechaS = "2020-12-14";
+        Date fecha = (Date.valueOf(fechaS));
+//        Tema newTema = new Tema (01, fecha, "Programación Orientada a Objetos");
+        Tema newTema = new Tema (01, fecha, "Programación Orientada a Objetos", unTema.items, unTema.ejercicios, unTema.investigaciones);
+        temas.add(newTema);
+    }
     
     public void cargarTema (){
         teclado.nextLine();
