@@ -14,6 +14,8 @@ import java.util.Scanner;
  */
 public class Bitacora {
 
+    public  Materia materia = new Materia ();
+    public  Tema tema = new Tema ();
     Scanner teclado = new Scanner (System.in);
     public int año;
     public ArrayList<Materia> materias = new ArrayList ();
@@ -57,6 +59,45 @@ public class Bitacora {
         }
     return unaMateria;
     }
+    
+        public void imprimirBitacora(){
+        System.out.println("Lista de materias");
+        imprimirMaterias();
+//        System.out.println("1- Buscar Materia");
+        System.out.println("0- Cargar materias");
+        int opcion = teclado.nextInt();
+        if (opcion != 0) {
+            buscarMateria();
+        } else {
+            cargarMateria();
+        }
+        do {
+        System.out.println("Ingrese una opcion");
+        System.out.println("1. Tema");
+        System.out.println("2. Item");
+        System.out.println("3. Ejercicio");
+        System.out.println("4. Investigación");
+       
+        System.out.print("Ingrese el número de la opción elegida: ");
+        opcion = teclado.nextInt();
+          switch(opcion){
+                case 1: 
+                    materia.cargarTema();
+                    break;
+                case 2:                  
+                    tema.cargarItem();
+                    break;
+                case 3:
+        tema.cargarEjercicio();
+                    break;
+                case 4:
+        tema.cargarInvestigacion();
+                    break;    
+                default:
+                    System.out.println("La ejecución del sistema ha finalizado");
+            }
+        } while(opcion != 7);
+    }  
 
     //GETTERS AND SETTERS
     public int getAño() {

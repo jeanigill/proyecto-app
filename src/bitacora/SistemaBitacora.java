@@ -25,11 +25,11 @@ public class SistemaBitacora {
             System.out.println("");
             System.out.println("Menú del sistema");
             System.out.println("1. Materias");
-            System.out.println("2. ");
-            System.out.println("3. ");
-            System.out.println("4. ");
-            System.out.println("5. ");
-            System.out.println("6. ");
+            System.out.println("2. Tema");
+            System.out.println("3. Item");
+            System.out.println("4. Ejercicio");
+            System.out.println("5. Investigación");
+            System.out.println("6. Ver completo");
             System.out.println("7. Salir");
             System.out.println("");
             System.out.print("Ingrese el número de la opción elegida: ");
@@ -119,9 +119,12 @@ public class SistemaBitacora {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       } 
                     break;
+                case 6:
+                    bitacora.imprimirBitacora();
+                    break;
                 default:
                     System.out.println("La ejecución del sistema ha finalizado");
             }
-        }while(opcion != 6);
+        }while(opcion != 7);
     }    
     }
