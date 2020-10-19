@@ -14,6 +14,7 @@ public class SistemaBitacora {
      */
     public static Bitacora bitacora = new Bitacora ();
     public static Materia materia = new Materia ();
+    public static Tema tema = new Tema ();
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);        
         int opcion;
@@ -63,9 +64,9 @@ public class SistemaBitacora {
                       opcion = teclado.nextInt();
                       
                       if(opcion == 1){
-                          materia.verTemas();
+                          materia.imprimirTemas();
                       } if (opcion == 2 ){
-                          //materias.cargarTemas();
+                          materia.cargarTema();
                       } else {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       }
@@ -79,9 +80,9 @@ public class SistemaBitacora {
                       System.out.print("Ingrese el número de la opción elegida: ");
                       opcion = teclado.nextInt();
                       if(opcion == 1){
-                         // temas.verItem();
+                         tema.itemsPorDefecto();
                       } if (opcion == 2 ){
-                          //temas.cargarItem();
+                         tema.cargarItem();
                       } else {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       } 
@@ -95,9 +96,9 @@ public class SistemaBitacora {
                       System.out.print("Ingrese el número de la opción elegida: ");
                       opcion = teclado.nextInt();
                       if(opcion == 1){
-                         // temas.verEjercicio();
+                        tema.ejercicioPorDefecto();
                       } if (opcion == 2 ){
-                          //temas.cargarEjercicio();
+                        tema.cargarEjercicio();
                       } else {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       } 
@@ -111,9 +112,9 @@ public class SistemaBitacora {
                       System.out.print("Ingrese el número de la opción elegida: ");
                       opcion = teclado.nextInt();
                       if(opcion == 1){
-                         // tema.verInvestigaciones();
+                          tema.investigacionPorDefecto();
                       } if (opcion == 2 ){
-                          //tema.cargarInvestigacion();
+                          tema.cargarInvestigacion();
                       } else {
                          System.out.println("Número ingresado no exite. Intente nuevamente");
                       } 
