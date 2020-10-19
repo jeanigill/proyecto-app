@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bitacora;
+package ejecutable;
 
+import clases.Bitacora;
+import clases.Materia;
+import clases.Tema;
 import java.util.Scanner;
 
 public class SistemaBitacora {
