@@ -170,6 +170,13 @@ public class Tema {
         }return unItem;
     }
 
+      public void editItemAprendido() {
+                Item unItem = buscarItem();
+                unItem.editarAprendido();
+                System.out.println("El Item ha sido marcado como aprendido correctamente");                
+            imprimirItems();
+    } 
+       
      //GETTER AND SETTERS
      
     public int getId() {

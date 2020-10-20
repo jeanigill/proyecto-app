@@ -16,6 +16,10 @@ public class Item {
     private boolean aprendido;
     int id; 
 
+     public Item(){
+        
+    }
+    
     public Item(int id, String concepto, String descripcion, String dudas, boolean aprendido) {
         this.id = id;
         this.concepto = concepto;
@@ -23,6 +27,7 @@ public class Item {
         this.dudas = dudas;
         this.aprendido = aprendido;
     }
+   
         public Item(int id, String concepto, String dudas, boolean aprendido) {
         this.id = id;
         this.concepto = concepto;
@@ -36,6 +41,7 @@ public class Item {
     
     public void editarAprendido() {
         setAprendido(true);
+    System.out.println("El Item ha sido marcado como aprendido correctamente");                
     }
     //GETTERS AND SETTERS
 

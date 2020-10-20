@@ -6,6 +6,7 @@
 package ejecutable;
 
 import clases.Bitacora;
+import clases.Item;
 import clases.Materia;
 import clases.Tema;
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class SistemaBitacora {
     public static Bitacora bitacora = new Bitacora();
     public static Materia unaMateria = new Materia();
     public static Tema unTema = new Tema();
+    public static Item unItem = new Item();
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
@@ -27,7 +29,7 @@ public class SistemaBitacora {
         bitacora.imprimirMaterias();
         System.out.println("0- Cargar materias");
         System.out.println("");
-//        System.out.println("Eliga una materia o cargue una nueva materia");
+        System.out.println("Eliga una materia o cargue una nueva materia");
         opcion = teclado.nextInt();
         System.out.println("");
         if (opcion != 0) {
@@ -45,10 +47,12 @@ public class SistemaBitacora {
         unaMateria.imprimirTemas();
         System.out.println("0- Cargar materias");
         opcion = teclado.nextInt();
+        
+
         if (opcion == 0) {
 
         } else {
-            Tema unTema = unaMateria.buscarTema();
+            
             System.out.println(" ");
             System.out.println("1. Ítems");
             System.out.println("2. Ejercicios");
@@ -57,7 +61,14 @@ public class SistemaBitacora {
             switch (opcion) {
                 case 1: 
                     unTema.imprimirItems();
+                    System.out.println("0. Editar Item");
+                    unTema = unaMateria.buscarTema();
                     
+                    opcion = teclado.nextInt();
+                    if (opcion==0){
+                        unTema.editItemAprendido();
+                    }
+                    unTema.imprimirItems();
                     break;
                 case 2:
                     unTema.imprimirEjercicios();
@@ -185,3 +196,4 @@ public class SistemaBitacora {
 //        }while(opcion != 7);
 //    }    
 //    }
+
