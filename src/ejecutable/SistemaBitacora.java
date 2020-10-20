@@ -15,63 +15,67 @@ public class SistemaBitacora {
     /**
      * @param args the command line arguments
      */
-    public static Bitacora bitacora = new Bitacora ();
-    public static Materia unaMateria = new Materia ();
-    public static Tema unTema = new Tema ();
-    
+    public static Bitacora bitacora = new Bitacora();
+    public static Materia unaMateria = new Materia();
+    public static Tema unTema = new Tema();
+
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);        
+        Scanner teclado = new Scanner(System.in);
         int opcion;
         System.out.println("****Bienvenido al sistema de bitacora en JAVA****");
         System.out.println("Listado de materias en este semestre");
         bitacora.imprimirMaterias();
         System.out.println("0- Cargar materias");
         System.out.println("");
-        System.out.println("Eliga una materia o cargue una nueva materia");
+//        System.out.println("Eliga una materia o cargue una nueva materia");
         opcion = teclado.nextInt();
         System.out.println("");
         if (opcion != 0) {
+            unaMateria = bitacora.buscarMateria();
+            if (unaMateria != null) {
+                unaMateria.imprimirMateria();
+                unaMateria.imprimirTemas();
+            } else {
+                System.out.println("No existe la materia");
+            }
+        } else if (opcion == 0) {
+            bitacora.cargarMateria();
         }
-        unaMateria = bitacora.buscarMateria();
-        
-        if (unaMateria != null) {
-            unaMateria.imprimirMateria();
-            unaMateria.imprimirTemas();
-        }else{
-           bitacora.cargarMateria(); 
-        }
-       System.out.println("Elegir un tema o crear uno nuevo");
-       opcion = teclado.nextInt();
-       if (opcion == 0) {
-        
-       } else {
+        System.out.println("Elegir un tema o crear uno nuevo");
+        unaMateria.imprimirTemas();
+        System.out.println("0- Cargar materias");
+        opcion = teclado.nextInt();
+        if (opcion == 0) {
+
+        } else {
             Tema unTema = unaMateria.buscarTema();
             System.out.println(" ");
             System.out.println("1. Ítems");
             System.out.println("2. Ejercicios");
             System.out.println("3. Investigaciones");
             opcion = teclado.nextInt();
-           switch (opcion){
-            case 1:
-            unTema.imprimirItems();
-            break;   
-            case 2: 
-                unTema.imprimirEjercicios();
-                break;
-            case 3:
-                unTema.imprimirInvestigaciones();
-                break;
-                case 4:              
-                    break;    
+            switch (opcion) {
+                case 1: 
+                    unTema.imprimirItems();
+                    
+                    break;
+                case 2:
+                    unTema.imprimirEjercicios();
+                    break;
+                case 3:
+                    unTema.imprimirInvestigaciones();
+                    break;
+                case 4:
+                    break;
                 default:
                     System.out.println("La ejecución del sistema ha finalizado");
             }
-        } while(opcion != 5);
-    } 
-    
+        }
+        while (opcion != 5);
+    }
+
 }
 
- 
 //        do{
 //            System.out.println("");
 //            System.out.println("SISTEMA DE BITACORA ACADEMICA");
@@ -181,4 +185,3 @@ public class SistemaBitacora {
 //        }while(opcion != 7);
 //    }    
 //    }
-

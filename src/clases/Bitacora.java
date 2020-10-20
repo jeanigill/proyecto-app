@@ -37,6 +37,7 @@ public class Bitacora {
     public void cargarMateria() {
         teclado.nextLine();
         System.out.println("Introduzca el id: ");
+        //Materia unaMateria = buscarMateria();
         int id = teclado.nextInt();
         teclado.nextLine();
         System.out.println("Nombre de la materia: ");
@@ -61,7 +62,7 @@ public class Bitacora {
     public Materia buscarMateria() {
         Materia unaMateria = null;
 //        imprimirMaterias();
-        System.out.println("Introduzca el id de la materia");
+        System.out.println("Ingrese una opción");
         int idM = teclado.nextInt();
         for (int i = 0; i < materias.size(); i++) {
             unaMateria = materias.get(i);

@@ -130,7 +130,7 @@ public class Tema {
      }
      
      public void imprimirItems (){
-         if (items.size()<0){
+         if (items.size()>0){
              for (int i=0; i<items.size(); i++){
                  Item unItem = items.get(i);
                  System.out.println(unItem.getId()+" - Concepto : "+unItem.getConcepto()+" - Descripción: "
@@ -139,7 +139,7 @@ public class Tema {
      }
      }
      public void imprimirEjercicios (){
-         if (ejercicios.size()<0){
+         if (ejercicios.size()>0){
              for (int i=0; i<ejercicios.size(); i++){
                  Ejercicio unEjercicio = ejercicios.get(i);
                  System.out.println(unEjercicio.getId()+" - Tiempo dedicado (minutos): "+unEjercicio.getTiempoDedicado()+" - Experiencia: "
@@ -148,7 +148,7 @@ public class Tema {
      }
      }
      public void imprimirInvestigaciones (){
-         if (investigaciones.size()<0){
+         if (investigaciones.size()>0){
              for (int i=0; i<investigaciones.size(); i++){
                  Investigacion unaInvestigacion = investigaciones.get(i);
                  System.out.println(" Tiempo dedicado (minutos): "+unaInvestigacion.getTiempoDedicado()+" - Tema: "
@@ -158,7 +158,17 @@ public class Tema {
      }
      }
      
-     
+       public Item buscarItem (){
+        Item unItem = null;
+        System.out.println("Ingrese el id del Item:");    
+        int idI = teclado.nextInt();
+        for (int i =0; i<items.size(); i++){
+            unItem = items.get(i);
+            if (unItem.getId()== idI){
+                i= items.size();
+            }
+        }return unItem;
+    }
 
      //GETTER AND SETTERS
      

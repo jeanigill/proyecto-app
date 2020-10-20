@@ -34,6 +34,9 @@ public class Item {
         System.out.println("Item: " + concepto );        
     }
     
+    public void editarAprendido() {
+        setAprendido(true);
+    }
     //GETTERS AND SETTERS
 
     public int getId() {

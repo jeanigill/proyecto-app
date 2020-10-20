@@ -94,6 +94,18 @@ public class Materia {
             }
         }return unTema;
     }
+    public void editItemAprendido() {
+        Tema thisTema;
+        thisTema = buscarTema();
+            if (thisTema != null) {
+                Item unItem = thisTema.buscarItem();
+                unItem.editarAprendido();
+                System.out.println("El Item ha sido marcado como aprendido correctamente");                
+            }else {
+                System.out.println("El id del Tema no existe");
+            }
+            thisTema.imprimirItems();
+    }
     
     //GETTERS AND SETTERS
 
