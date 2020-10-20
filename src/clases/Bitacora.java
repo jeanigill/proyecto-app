@@ -21,9 +21,9 @@ public class Bitacora {
     public ArrayList<Materia> materias = new ArrayList();
 
     public void materiasPorDefecto() {
-        Materia materia1 = new Materia(01, "POO", unaMateria.temas);
+        Materia materia1 = new Materia(01, "Informatica I", unaMateria.temas);
         Materia materia2 = new Materia(02, "Alemán");
-        Materia materia3 = new Materia(03, "Matemática");
+        Materia materia3 = new Materia(03, "Emprendedurismo");
         materias.add(materia1);
         materias.add(materia2);
         materias.add(materia3);
@@ -38,10 +38,15 @@ public class Bitacora {
         teclado.nextLine();
         System.out.println("Introduzca el id: ");
         int id = teclado.nextInt();
+        teclado.nextLine();
         System.out.println("Nombre de la materia: ");
         String nombre = teclado.nextLine();
         Materia newMateria = new Materia(id, nombre);
         this.materias.add(newMateria);
+        
+        System.out.println("");
+        System.out.println("Los datos fueron guardados correctamente");
+        System.out.println("¡GRACIAS!");
     }
 
     public void imprimirMaterias() {
