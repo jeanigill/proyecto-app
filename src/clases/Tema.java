@@ -95,7 +95,7 @@ public class Tema {
          String experiencia = teclado.nextLine();
          System.out.println("Dudas: ");
          String dudas = teclado.nextLine();
-         System.out.println("Timpo dedicado:");
+         System.out.println("Timpo dedicado (minutos):");
          int tiempoD = teclado.nextInt();
          System.out.println("Porcentaje logrado: ");
          int logrado = teclado.nextInt();
@@ -133,19 +133,30 @@ public class Tema {
          if (items.size()>0){
              for (int i=0; i<items.size(); i++){
                  Item unItem = items.get(i);
+                 if (unItem.isAprendido()){
                  System.out.println(unItem.getId()+" - Concepto : "+unItem.getConcepto()+" - Descripción: "
-                         +unItem.getDescripcion()+" - Dudas: "+unItem.getDudas()+" - Aprendido "+unItem.isAprendido());
+                         +unItem.getDescripcion()+" - Dudas: "+unItem.getDudas()+" - Aprendido: Sí ");
+                 }
+                 else {
+                 System.out.println(unItem.getId()+" - Concepto : "+unItem.getConcepto()+" - Descripción: "
+                         +unItem.getDescripcion()+" - Dudas: "+unItem.getDudas()+" - Aprendido: No");
+                 }
+                 
              }
-     }
+     }else{
+             System.out.println("No hay Items guardados");
+         }
      }
      public void imprimirEjercicios (){
          if (ejercicios.size()>0){
              for (int i=0; i<ejercicios.size(); i++){
                  Ejercicio unEjercicio = ejercicios.get(i);
-                 System.out.println(unEjercicio.getId()+" - Tiempo dedicado (minutos): "+unEjercicio.getTiempoDedicado()+" - Experiencia: "
-                         +unEjercicio.getExperiencia()+" - Dudas: "+unEjercicio.getDudas()+" - % Logrado"+unEjercicio.getLogrado());
+                 System.out.println(unEjercicio.getId()+" - Tiempo dedicado: "+unEjercicio.getTiempoDedicado()+" minutos - Experiencia: "
+                         +unEjercicio.getExperiencia()+" - Dudas: "+unEjercicio.getDudas()+" - Logrado: "+unEjercicio.getLogrado()+"%");
              }
-     }
+     }else{
+             System.out.println("No hay ningún ejercicio cargado");
+         }
      }
      public void imprimirInvestigaciones (){
          if (investigaciones.size()>0){
@@ -155,13 +166,15 @@ public class Tema {
                          +unaInvestigacion.getTema()+" - Comentarios: "+unaInvestigacion.getComentarios()+" - Nivel de comprensión (%) "
                          +unaInvestigacion.getComprension()+" - Dudas: "+unaInvestigacion.getDudas());
              }
-     }
+     }else{
+             System.out.println("No hay investigaciones");
+         }
      }
      
-       public Item buscarItem (){
+       public Item buscarItem (int idI){
         Item unItem = null;
-        System.out.println("Ingrese el id del Item:");    
-        int idI = teclado.nextInt();
+        //System.out.println("Ingrese el id del Item:");    
+        //int idI = teclado.nextInt();
         for (int i =0; i<items.size(); i++){
             unItem = items.get(i);
             if (unItem.getId()== idI){
@@ -170,11 +183,9 @@ public class Tema {
         }return unItem;
     }
 
-      public void editItemAprendido() {
-                Item unItem = buscarItem();
+      public void editItemAprendido(int opcion) {
+                Item unItem = buscarItem(opcion);
                 unItem.editarAprendido();
-                System.out.println("El Item ha sido marcado como aprendido correctamente");                
-            imprimirItems();
     } 
        
      //GETTER AND SETTERS

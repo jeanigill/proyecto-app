@@ -45,11 +45,11 @@ public class Materia {
     }
     
     public void cargarTema (){
+         System.out.println("ID: ");
+        int id = teclado.nextInt();
         teclado.nextLine();
         System.out.println("Ingrese el tema: ");
         String tema = teclado.nextLine();
-        System.out.println("ID: ");
-        int id = teclado.nextInt();
         System.out.println("Día: ");
         String diaN = teclado.nextLine();
         System.out.println("Mes: ");
@@ -63,7 +63,7 @@ public class Materia {
 //        Ejercicio newEjercicio = unTema.cargarEjercicio();
 //        Investigacion newInvestigacion = unTema.cargarInvestigacion();
 //        Tema newTema = new Tema(fecha, unTema.items.set(fecha, newItem)tema, newItem, newEjercicio, newInvestigacion);
-        Tema newTema = new Tema(id, fecha, nombre );
+        Tema newTema = new Tema(id, fecha, tema );
         temas.add(newTema);
     
     }
@@ -77,16 +77,21 @@ public class Materia {
     }
     public void imprimirTemas(){
          System.out.println("");
-        System.out.println("Temas: ");
+        if (temas.size()>0){
+            System.out.println("Temas: ");
         for(int i= 0; i<temas.size(); i++ ){
         Tema unTema = temas.get(i);
             System.out.println(unTema.getId()+"-"+unTema.getNombre()+ " Fecha: "+unTema.getFecha());
+    } }else{
+            System.out.println("No hay ningún tema cargado");    
+            }
+        
+
     }
-    }
-    public Tema buscarTema (){
+    public Tema buscarTema (int idT){
         Tema unTema = null;
-        System.out.println("Ingrese el id del tema:");    
-        int idT = teclado.nextInt();
+       // System.out.println("Ingrese el id del tema:");    
+        //int idT = teclado.nextInt();
         for (int i =0; i<temas.size(); i++){
             unTema = temas.get(i);
             if (unTema.getId()== idT){
@@ -94,18 +99,18 @@ public class Materia {
             }
         }return unTema;
     }
-    public void editItemAprendido() {
-        Tema thisTema;
-        thisTema = buscarTema();
-            if (thisTema != null) {
-                Item unItem = thisTema.buscarItem();
-                unItem.editarAprendido();
-                System.out.println("El Item ha sido marcado como aprendido correctamente");                
-            }else {
-                System.out.println("El id del Tema no existe");
-            }
-            thisTema.imprimirItems();
-    }
+//    public void editItemAprendido() {
+//        Tema thisTema;
+//        thisTema = buscarTema(});
+//            if (thisTema != null) {
+//                Item unItem = thisTema.buscarItem();
+//                unItem.editarAprendido();
+//                System.out.println("El Item ha sido marcado como aprendido correctamente");                
+//            }else {
+//                System.out.println("El id del Tema no existe");
+//            }
+//            thisTema.imprimirItems();
+//    }
     
     //GETTERS AND SETTERS
 

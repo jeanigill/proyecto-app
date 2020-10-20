@@ -59,11 +59,11 @@ public class Bitacora {
         }
     }
 
-    public Materia buscarMateria() {
+    public Materia buscarMateria(int idM) {
         Materia unaMateria = null;
 //        imprimirMaterias();
-        System.out.println("Ingrese una opción");
-        int idM = teclado.nextInt();
+  //      System.out.println("Ingrese nuevamente el id");
+        // idM = teclado.nextInt();
         for (int i = 0; i < materias.size(); i++) {
             unaMateria = materias.get(i);
             if (idM == unaMateria.getId()) {
@@ -74,41 +74,41 @@ public class Bitacora {
         return null;
     }
 
-    public void imprimirBitacora() {
-        imprimirMaterias();
-        System.out.println("0- Cargar materias");
-        int opcion = teclado.nextInt();
-        if (opcion != 0) {
-        }
-        unaMateria = buscarMateria();
-        if (unaMateria != null) {
-            unaMateria.imprimirMateria();
-            unaMateria.imprimirTemas();
-        }
-        System.out.println("0- Cargar tema");
-        opcion = teclado.nextInt();
-        if (opcion == 0) {
-            unaMateria.cargarTema();
-        } else {
-            Tema unTema = unaMateria.buscarTema();
-            System.out.println(" ");
-            System.out.println("1. Ítems");
-            System.out.println("2. Ejercicios");
-            System.out.println("3. Investigaciones");
-            opcion = teclado.nextInt();
-           switch (opcion){
-            case 1:
-            unTema.imprimirItems();
-            break;   
-            case 2: 
-                unTema.imprimirEjercicios();
-                break;
-            case 3:
-                unTema.imprimirInvestigaciones();
-                break;
-           }
-            
-        }
+//    public void imprimirBitacora() {
+//        imprimirMaterias();
+//        System.out.println("0- Cargar materias");
+//        int opcion = teclado.nextInt();
+//        if (opcion != 0) {
+//        }
+//        //unaMateria = buscarMateria();
+//        if (unaMateria != null) {
+//            unaMateria.imprimirMateria();
+//            unaMateria.imprimirTemas();
+//        }
+//        System.out.println("0- Cargar tema");
+//        opcion = teclado.nextInt();
+//        if (opcion == 0) {
+//            unaMateria.cargarTema();
+//        } else {
+//            Tema unTema = unaMateria.buscarTema();
+//            System.out.println(" ");
+//            System.out.println("1. Ítems");
+//            System.out.println("2. Ejercicios");
+//            System.out.println("3. Investigaciones");
+//            opcion = teclado.nextInt();
+//           switch (opcion){
+//            case 1:
+//            unTema.imprimirItems();
+//            break;   
+//            case 2: 
+//                unTema.imprimirEjercicios();
+//                break;
+//            case 3:
+//                unTema.imprimirInvestigaciones();
+//                break;
+//           }
+//            
+  //     }
 
 //         else {
 //            cargarMateria();
@@ -139,7 +139,7 @@ public class Bitacora {
 //                    System.out.println("La ejecución del sistema ha finalizado");
 //            }
 //        } while(opcion != 7);
-    }
+    
 
     //GETTERS AND SETTERS
     public int getAño() {
