@@ -59,6 +59,7 @@ public class Materia {
         String FechaC = anhoN + "-" + mesN + "-" + diaN;
         Date fecha = (Date.valueOf(FechaC));
         
+        
 //        Item newItem = unTema.cargarItem();
 //        Ejercicio newEjercicio = unTema.cargarEjercicio();
 //        Investigacion newInvestigacion = unTema.cargarInvestigacion();
@@ -67,6 +68,24 @@ public class Materia {
         temas.add(newTema);
     
     }
+    
+    public void editTema ( Tema unTema){
+          System.out.println("Nombre: ");
+          String newNombre = teclado.nextLine();
+          System.out.println("Ingrese el tema: ");
+        String tema = teclado.nextLine();
+        System.out.println("Día: ");
+        String diaN = teclado.nextLine();
+        System.out.println("Mes: ");
+        String mesN = teclado.nextLine();
+        System.out.println("Año: ");
+        String anhoN = teclado.nextLine();
+        String FechaC = anhoN + "-" + mesN + "-" + diaN;
+        java.sql.Date fecha = (java.sql.Date.valueOf(FechaC));
+        unTema.setNombre(newNombre);
+        unTema.setFecha(fecha);
+      }
+    
     public void imprimirMateria (){
         System.out.println("Nombre: "+nombre);
     } 

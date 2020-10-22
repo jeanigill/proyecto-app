@@ -118,6 +118,7 @@ public class SistemaBitacora {
             System.out.println("9. Cargar Ejercicios");
             System.out.println("10. Ver Investigaciones");
             System.out.println("11. Cargar Investigaciones");
+            System.out.println("12. Editar tema");
             System.out.println("");
             System.out.print("Ingrese el número de la opción elegida: ");
             System.out.println("");
@@ -230,10 +231,24 @@ public class SistemaBitacora {
                     unTema.imprimirInvestigaciones();
                     unTema.cargarInvestigacion();
                     break;
+                case 12:
+                    bitacora.imprimirMaterias();
+                    System.out.println("Ingrese el id de la materia");
+                    id = teclado.nextInt();
+                    unaMateria = bitacora.buscarMateria(id);
+                    unaMateria.imprimirTemas();
+                    System.out.println("Ingrese el id del Tema");
+                    id = teclado.nextInt();
+                    unTema = unaMateria.buscarTema(id);
+                    unTema.imprimirTema();
+                    unaMateria.editTema(unTema);
+                    unTema.imprimirTema();
+                    
+                    break;
                 default:
                     System.out.println("La ejecución del sistema ha finalizado");
             }
-        } while (opcion != 12);
+        } while (opcion != 13);
     }
 }
 

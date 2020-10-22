@@ -187,7 +187,14 @@ public class Tema {
                 Item unItem = buscarItem(opcion);
                 unItem.editarAprendido();
     } 
-       
+
+      public void imprimirTema (){
+          System.out.println("Fecha: "+fecha);
+          System.out.println("Nombre: "+nombre);
+      }
+      
+      
+      
      //GETTER AND SETTERS
      
     public int getId() {
